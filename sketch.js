@@ -20,14 +20,16 @@ function setup() {
   iss.addImage(issImg)
   
 
-  spacecraft=createSprite(400, 200, 50, 50);
+  spacecraft=createSprite(400, 350, 50, 50);
   spacecraft.x=Math.round(random(100,700));
   spacecraft.addImage(spacecraft1Img)
-  spacecraft.scale=0.4
+  spacecraft.scale=0.1
 }
 
 function draw() {
   background(spacebgImg);  
+  console.log(spacecraft.x)
+  console.log(spacecraft.y)
 
    if(!hasDocked){
 
@@ -50,10 +52,14 @@ function draw() {
     }
   }
 
-   if(spacecraft.x===335&&spacecraft.y===360){
+   if(spacecraft.x<=(iss.x-50)&&spacecraft.y<=(iss.y+70)){
 
      hasDocked=true
-     text("Docking Successful", 400, 100)
+     fill("red")
+     stroke("blue")
+     strokeWeight(3)
+     textSize(20)
+     text("Docking Successful", 400, 350)
 
    }
   drawSprites();
